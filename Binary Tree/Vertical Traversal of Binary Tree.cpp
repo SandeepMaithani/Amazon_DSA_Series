@@ -4,7 +4,7 @@ Complexity Analysis:
 
 Time complexity : O(N), Where N is no of nodes in the binary tree we will process each node once.
 
-Space Complexity : O(N), Where N is no of nodes in the binary tree we will we using hashMap to store at max N nodes at each level.
+Space Complexity : O(N), Where N is no of nodes in the binary tree and we will we using hashMap to store at max N nodes in the hashTable.
 
 */
 

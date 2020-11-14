@@ -2,7 +2,7 @@
 
 Complexity Analysis:
 
-Time complexity : O(N), Where N is number of nodes in the binary tree.
+Time complexity : O(N), Where N is number of nodes in the binary tree and we will be visiting each node at most twice.
 
 Space Complexity : O(H), Where H is height of tree which is the space required by calling stack during recursion calls.
 

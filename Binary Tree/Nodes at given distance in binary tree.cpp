@@ -1,3 +1,24 @@
+/*
+
+Complexity Analysis:
+
+Time complexity : O(N), Where N is number of nodes in the binary tree and we will be visiting each node at most twice.
+
+Space Complexity : O(H), Where H is height of tree which is the space required by calling stack during recursion calls.
+
+*/
+
+/*
+
+Intution :-
+
+Key idea here is we will use the concept of time required to burn a tree time required to burn an individual node
+is the distance of that node from target node so we will look for the node whose distance or burn time is K from the
+target node and we will get our solution.
+
+*/
+
+
 class solver
 {
 private:
@@ -22,13 +43,12 @@ public:
             return true;
         }
 
-        bool left = kNodesHelper(root -> left, bfsHelper, target, k, solution, nodeDistance);
-        bool right = kNodesHelper(root -> right, bfsHelper, target, k, solution, nodeDistance);
+        bool inleft = kNodesHelper(root -> left, bfsHelper, target, k, solution, nodeDistance);
+        bool inright = kNodesHelper(root -> right, bfsHelper, target, k, solution, nodeDistance);
 
-        if (left) {
+        if (inleft) {
             int size = bfsHelper.size();
             nodeDistance++;
-            cout << nodeDistance << endl;
 
             while (size--) {
                 Node* currNode = bfsHelper.front();
@@ -37,8 +57,6 @@ public:
                 if (nodeDistance == k) {
                     solution.push_back(currNode -> data);
                 }
-
-                cout << nodeDistance << "   " << currNode -> data << endl;
 
                 if (currNode -> left) {
                     bfsHelper.push(currNode -> left);
@@ -53,14 +71,16 @@ public:
                 bfsHelper.push(root -> right);
             }
 
+            if (nodeDistance == k) {
+                solution.push_back(root -> data);
+            }
+
             return true;
         }
 
-        if (right) {
+        if (inright) {
             int size = bfsHelper.size();
             nodeDistance++;
-
-            cout << nodeDistance << endl;
 
             while (size--) {
                 Node* currNode = bfsHelper.front();
@@ -69,8 +89,6 @@ public:
                 if (nodeDistance == k) {
                     solution.push_back(currNode -> data);
                 }
-
-                cout << nodeDistance << "   " << currNode -> data << endl;
 
                 if (currNode -> left) {
                     bfsHelper.push(currNode -> left);
@@ -83,6 +101,10 @@ public:
 
             if (root -> left) {
                 bfsHelper.push(root -> left);
+            }
+
+            if (nodeDistance == k) {
+                solution.push_back(root -> data);
             }
 
             return true;
@@ -101,6 +123,7 @@ public:
             return solution;
         }
 
+
         bool dummy = kNodesHelper(root, bfsHelper, target, k, solution, nodeDistance);
 
         while (!bfsHelper.empty()) {
@@ -111,14 +134,16 @@ public:
                 Node* currNode = bfsHelper.front();
                 bfsHelper.pop();
 
+                if (nodeDistance == k) {
+                    solution.push_back(currNode -> data);
+                }
+
                 if (currNode -> left != NULL) {
                     bfsHelper.push(currNode -> left);
-
                 }
 
                 if (currNode -> right != NULL) {
                     bfsHelper.push(currNode -> right);
-
                 }
             }
         }

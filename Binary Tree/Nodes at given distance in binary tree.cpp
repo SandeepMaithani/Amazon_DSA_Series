@@ -8,6 +8,7 @@ Space Complexity : O(H), Where H is height of tree which is the space required b
 
 */
 
+
 /*
 
 Intution :-
@@ -21,7 +22,6 @@ target node and we will get our solution.
 
 class solver
 {
-private:
 
 public:
 

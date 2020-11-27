@@ -19,7 +19,6 @@ Intution :-
 
 3. Append the reversed list to the end of Linked List with odd positioned nodes.
 
-
 */
 
 
@@ -78,3 +77,4 @@ void rearrange(struct Node *odd)
 	evenList -> next = reverseHelper(evenList -> next);
 	oddHelper -> next = evenList -> next;
 }
+

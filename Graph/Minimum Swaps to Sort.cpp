@@ -1,5 +1,55 @@
 /*
 
+Method 1 : Using Graph Concept                             Verdict : Accepted
+
+Complexity Analysis :-
+
+Time Complexity: O(N*log(N)). Time taken to sort the array of pair is N*Log(N).
+
+Space Complexity: O(N). We need O(N) extra memory to create a array of pairs.
+
+*/
+
+
+int minSwaps(int arr[], int N) {
+    pair<int, int>indexMap[N];
+
+    for (int i = 0; i < N; i++) {
+        indexMap[i].first = arr[i];
+        indexMap[i].second = i;
+    }
+
+    sort(indexMap, indexMap + N);
+
+    vector<bool>visited(N, false);
+
+    int swapCount = 0;
+
+    for (int i = 0; i < N; i++) {
+        if (visited[i] || indexMap[i].second == i) {
+            continue;
+        }
+
+        int cycleLen = 0;
+        int cycleHelper = i;
+
+        while (visited[cycleHelper] != true) {
+            visited[cycleHelper] = true;
+            cycleLen++;
+            cycleHelper = indexMap[cycleHelper].second;
+        }
+
+        if (cycleLen > 1) {
+            swapCount = swapCount + cycleLen - 1;
+        }
+    }
+    return swapCount;
+}
+
+
+
+/*
+
 Method 2 : Using Priority Queue(Min Heap)                           Verdict : Accepted
 
 Complexity Analysis :-

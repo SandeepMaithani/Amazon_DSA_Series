@@ -2,10 +2,16 @@
 
 Complexity Analysis :-
 
-Time Complexity: O(E*Log(V)). Since each insertion take logrithmic time in a heap and we will doing total E no of
+Time Complexity : O(V*V) or  O(E*Log(V)) .
+
+If the input graph is represented using adjacency matrix then time it cost
+will be O(V*V) as we will be visiting each and every cell of matrix. If the input graph is represented using adjacency list
+then it will cost O(E*Log(V)) time, Since each insertion take logrithmic time in a heap and we will doing total E no of
 insertion and at max V no of element can be there in min Heap so it will cost O(E*Log(V)) time.
 
-Space Complexity: O(V). We need O(V) extra memory for the visited array and min heap.
+Space Complexity : O(V).
+
+We need extra memory for the visited array and min heap which will cost O(V) memory.
 
 */
 
@@ -16,8 +22,8 @@ Intution :-
 
 Key idea here is use prims Algorithms to get the minimum spanning tree.
 
-
 */
+
 
 void primsAlgo(vector<vector<int>>&graph, vector<bool>&visited, int &cost) {
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>>minHeap;

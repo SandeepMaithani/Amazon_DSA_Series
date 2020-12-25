@@ -5,7 +5,7 @@ Complexity Analysis :-
 Time Complexity : O(V+E). our algorithm calls DFS, finds reverse of the graph and again calls DFS. DFS takes O(V+E) for a graph represented
 using adjacency list. Reversing a graph also takes O(V+E) time. For reversing the graph, we simple traverse all adjacency lists.
 
-Space Complexity : O(V). We need extra memory for the set and visited vector which will cost O(V) memory.
+Space Complexity : O(V). We need extra memory for the stack and visited vector which will cost at max O(V) memory.
 
 */
 

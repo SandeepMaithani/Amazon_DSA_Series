@@ -5,16 +5,19 @@ Earliest Time to complete delivery
 A geographic node has multiple Amazon buildings, each with 4 receiving docks. The number of intake deliveries is equal to the total number of receiving docks in the node. Each intake delivery has a predicted offloading time, and each building has a specified time when its receiving docks become available for intake. Assuming that exactly 4 deliveries are assigned to each building and that those deliveries run independently (asynchronously) on the receiving docks of the chosen building, what is the earliest time that all intake deliveries can be completed?
 Write an algorithm to find the earliest time that all intake deliveries can be completed.
 
-Input
+Input :- 
+
 The input to the function/method consists of three arguments:
 numOfBuildings, an integer representing the number of buildings;
 buildingopenTime, a list of integers representing the times at which all 4 docks of the ith building become available;
 offloadTime, a list of integers representing the offload time of each intake delivery.
 
-Output
+Output :- 
+
 Return an integer representing the earliest time at which all the intake deliveries can be offloaded.
 
-Note
+Note :-
+
 The length of offloadTime is 4* numOfBuildings.
 
 Constraints

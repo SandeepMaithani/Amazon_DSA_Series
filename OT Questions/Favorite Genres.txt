@@ -1,3 +1,5 @@
+Question Statement :-
+
 Given a map Map<String, List<String>> userSongs with user names as keys and a list of all the songs that the user has listened to as values.
 
 Also given a map Map<String, List<String>> songGenres, with song genre as keys and a list of all the songs within that genre as values. The song can only belong to only one genre.
